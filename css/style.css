@@ -1,0 +1,220 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* ========================================
+    リセットcss
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* paddingとborderがboxに加算されない */
+}
+
+/* ========================================
+    全体設定
+========================================= */
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+}
+
+/* ========================================
+    ヘッダー
+========================================= */
+
+.header {
+  height: 95vh; /* 高さ＝上から95% */
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.8),
+    rgba(40, 180, 131, 0.8)), /* 線形勾配 右下へ */
+  url(../img/hero.jpg);
+  background-size: cover; /* 幅や要素にかかわらず常に要素はboxの内側に収める */
+  background-position: top; /* サイズ変更でtopとbottomが切り取られる */
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* polygon(x y, x y, x y) */
+  position: relative;
+}
+
+/* ========================================
+    ロゴと文字
+========================================= */
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* top,leftからさらに望む位置を相対指定 */
+  text-align: center; /* リンクボタンを中央揃えに */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase; /* 文字を大文字化 */
+
+  backface-visibility: hidden; /* 要素全体のアニメーションの揺れを非表示 */
+
+  margin-bottom: 60px;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400; /* HTMLのLato参照 */
+  letter-spacing: 35px; /* 文字の間隔 */
+
+
+  animation-name: moveInLeft;
+  animation-duration: 1s; /* アニメーション秒数 */
+  animation-timing-function: ease-out; /* 時間経過でどう遅くなるか */
+
+  /* 
+  animation-delay: 3s; アニメーション開始遅延秒数
+  animation-iteration-count: 3; 発生回数
+   */
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation: moveInRight 1s ease-out;
+
+}
+
+
+/* ========================================
+    キーフレーム
+========================================= */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); /* ←負正→ 開始時点：X方向の左に移動状態 */
+  }
+
+
+  80% {
+    transform: translateX(10px); /* いったん右に移動してからまた戻る */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); /* 今見えているように正確に表示 */
+  }
+}
+
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); /* ←負正→ 開始時点：X方向の右に移動状態 */
+  }
+
+  80% {
+    transform: translateX(-10px); /* いったん左に移動してからまた戻る */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); /* 今見えているように正確に表示 */
+  }
+}
+
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Yは正で下に移動 */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); /* 今見えているように正確に表示 */
+  }
+}
+
+
+/* ========================================
+    ボタン
+========================================= */
+
+/* セレクタの特殊状態：アンカー要素の通常状態
+   訪問した状態：一度クリックしてからもう一度クリックした状態 */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s; /* transition-property: all */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+
+/* btnの子として作成される要素 親ボタンの後ろに配置 */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute; /* 親ボタンの後ろに隠す */
+  top: 0;
+  left: 0;
+  z-index: -1; /* 要素が別の要素の上にある場合、その要素の位置を定義：-1で後ろ*/
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6); /* カーソルを移動させたら大きくなる */
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s; /* 名前、長さ、タイミング、遅延 */
+  animation-fill-mode: backwards; /* アニメーション開始前にスタイルを0%まで巻き戻す */
+}
