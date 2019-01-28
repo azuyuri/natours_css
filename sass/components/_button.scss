@@ -1,0 +1,73 @@
+
+
+/* ========================================
+    ボタン
+========================================= */
+
+/* セレクタの特殊状態：アンカー要素の通常状態
+   訪問した状態：一度クリックしてからもう一度クリックした状態 */
+
+.btn {
+
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    /* transition-property: all */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* カーソルを移動させたら大きくなる */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5px 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+
+  /* btnの子として作成される要素 親ボタンの後ろに配置 */
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    /* 親ボタンの後ろに隠す */
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* 要素が別の要素の上にある場合、その要素の位置を定義：-1で後ろ*/
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* 名前、長さ、タイミング、遅延 */
+    animation-fill-mode: backwards;
+    /* アニメーション開始前にスタイルを0%まで巻き戻す */
+  }
+}

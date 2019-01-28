@@ -1,0 +1,56 @@
+
+
+/* ========================================
+    テキスト
+========================================= */
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-gray-dark;
+  padding: 3rem;
+}
+
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /* 文字を大文字化 */
+
+  backface-visibility: hidden;
+  /* 要素全体のアニメーションの揺れを非表示 */
+
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    /* HTMLのLato参照 */
+    letter-spacing: 3.5rem;
+    /* 文字の間隔 */
+
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* アニメーション秒数 */
+    animation-timing-function: ease-out;
+    /* 時間経過でどう遅くなるか */
+
+    /* 
+  animation-delay: 3s; アニメーション開始遅延秒数
+  animation-iteration-count: 3; 発生回数
+   */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    animation: moveInRight 1s ease-out;
+  }
+}

@@ -1,0 +1,60 @@
+
+
+/* ========================================
+    キーフレーム
+========================================= */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+    /* ←負正→ 開始時点：X方向の左に移動状態 */
+  }
+
+
+  80% {
+    transform: translateX(1rem);
+    /* いったん右に移動してからまた戻る */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* 今見えているように正確に表示 */
+  }
+}
+
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+    /* ←負正→ 開始時点：X方向の右に移動状態 */
+  }
+
+  80% {
+    transform: translateX(-1rem);
+    /* いったん左に移動してからまた戻る */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* 今見えているように正確に表示 */
+  }
+}
+
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+    /* Yは正で下に移動 */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* 今見えているように正確に表示 */
+  }
+}
