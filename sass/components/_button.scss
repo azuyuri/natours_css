@@ -1,7 +1,7 @@
 
 
 /* ========================================
-    ボタン
+    メイン
 ========================================= */
 
 /* セレクタの特殊状態：アンカー要素の通常状態
@@ -19,7 +19,7 @@
     transition: all 0.2s;
     /* transition-property: all */
     position: relative;
-    font-size: 1.6rem;
+    font-size: $default-font-size;
   }
 
   &:hover {
@@ -69,5 +69,34 @@
     /* 名前、長さ、タイミング、遅延 */
     animation-fill-mode: backwards;
     /* アニメーション開始前にスタイルを0%まで巻き戻す */
+  }
+}
+
+/* ========================================
+    Learn more →
+========================================= */
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary; // 値を変更するにはフォントサイズを16→32にする必要があるのでpxでOK
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
   }
 }
