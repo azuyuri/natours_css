@@ -64,11 +64,13 @@ body {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
+
   display: inline-block;
   background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark); // グラデーション
   -webkit-background-clip: text; // textでクリップした背景のグラデーションを表示
-  letter-spacing: 2px;
   color: transparent; // textの色を透明化
+  
+  letter-spacing: 2px;
   transition: all 0.2s;
 
   &:hover {
@@ -77,8 +79,13 @@ body {
   }
 }
 
+/* ========================================
+    フラッシュカード
+========================================= */
+
 .heading-tertiary {
   font-size: $default-font-size;
+  text-transform: uppercase;
   font-weight: 700;
 }
 
