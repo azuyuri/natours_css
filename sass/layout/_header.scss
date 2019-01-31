@@ -17,6 +17,7 @@
   background-position: top;
   /* サイズ変更でtopとbottomが切り取られる */
 
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* polygon(x y, x y, x y) */
   position: relative;
