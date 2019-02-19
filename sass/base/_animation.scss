@@ -6,7 +6,7 @@
 
 @keyframes moveInLeft {
   0% {
-    opacity: 0;
+    opacity: 0; // 開始時点では透明状態
     transform: translateX(-10rem);
     /* ←負正→ 開始時点：X方向の左に移動状態 */
   }
